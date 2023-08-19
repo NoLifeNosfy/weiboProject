@@ -32,6 +32,7 @@ async def collect_messages(event1,event2): # 并行推断回调
         response = qa.get_response(prompt) # 获取AI输出
         panels.append(pn.Row('Assistant:', pn.pane.Markdown(response, width=600, styles={'background-color': '#F6F6F6'})))
     elif event2: # button_clear_history 事件
+        qa.clear()
         panels = [pn.Row('Assistant:', pn.pane.Markdown("Hello! I am AI assistant for arVix.", width=600, styles={'background-color': '#F6F6F6'}))] # 重置
     yield pn.Column(*panels)
 
